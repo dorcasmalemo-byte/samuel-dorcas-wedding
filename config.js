@@ -2,15 +2,18 @@ window.WEDDING_CONFIG = {
   weddingDate: "2026-12-26T15:00:00+02:00",
   links: {
     maps: "https://www.google.com/maps/search/?api=1&query=Avianto+Johannesburg+South+Africa",
-    accommodation: "#"
+    accommodation: "https://book.nightsbridge.com/29945"
+  },
+  rsvp: {
+    endpoint: "https://formsubmit.co/ajax/dorcasmalemo@icloud.com"
   },
   images: {
     hero:
       "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/0375ce1642f119ca4a478df665223d20/revisions/bd8ba3b7b25aae170b6c5f47a31de65a/renditions/1217c209d387316ef4acb9f622245c3d",
     welcome:
-      "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/59c4b6414b029a5b18a937069db0db90/revisions/53ccffa6dfd3c8b08905fa0daf852d58/renditions/ed178af2d9becbfa90baef77f770d7a6",
-    accommodation:
       "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/7f83127959ad99547aa65b9351298ac3/revisions/f69eac77825c76be0a13ebb58791092b/renditions/0f6d85675e98c70ee4399f8eaee1b515",
+    accommodation:
+      "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/59c4b6414b029a5b18a937069db0db90/revisions/53ccffa6dfd3c8b08905fa0daf852d58/renditions/ed178af2d9becbfa90baef77f770d7a6",
     gifts:
       "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/5391240c5f1657da7d827f3ed21fad0a/revisions/6e2ff5136489590e8566a6f1dd95e53d/renditions/2d9cdea3debc5057903673367b8f5764",
     galleryOne:
@@ -23,8 +26,11 @@ window.WEDDING_CONFIG = {
   heroGallery: [
     "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/0375ce1642f119ca4a478df665223d20/revisions/bd8ba3b7b25aae170b6c5f47a31de65a/renditions/1217c209d387316ef4acb9f622245c3d",
     "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/7f83127959ad99547aa65b9351298ac3/revisions/f69eac77825c76be0a13ebb58791092b/renditions/0f6d85675e98c70ee4399f8eaee1b515",
+    "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/59c4b6414b029a5b18a937069db0db90/revisions/53ccffa6dfd3c8b08905fa0daf852d58/renditions/ed178af2d9becbfa90baef77f770d7a6",
     "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/5391240c5f1657da7d827f3ed21fad0a/revisions/6e2ff5136489590e8566a6f1dd95e53d/renditions/2d9cdea3debc5057903673367b8f5764",
     "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/b891ab4865629d7a707c2060794c313f/revisions/eb9f65bd9d97fd0f0b38b307da5505c0/renditions/c89f9ad5dd1854babce352d6d30890b3",
+    "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/31605a9f2039d7afad14ab5942d50350/revisions/8c8dabf1fb711e8774ed8382134490ba/renditions/45028b55355a0ec9aa04537e2bf1d46e",
+    "https://lightroom.adobe.com/v2c/spaces/b69aed502dc74169b658a828368f7739/assets/28c9b28086d87303b85254e77ea7e9d8/revisions/1d250eb6d39ed5eff68efbc5bd18f35d/renditions/a668cbb208e455c94032074947809f28",
     "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=86",
     "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=86",
     "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=86"
@@ -104,7 +110,7 @@ window.WEDDING_CONFIG = {
           "Merci d'avoir confirmé votre présence. Nous sommes profondément honorés de vous compter parmi les personnes qui partageront cette journée si importante pour nous.",
         blocks: [
           { title: "Notre gratitude", text: "Votre présence rendra cette célébration encore plus spéciale, plus chaleureuse et plus mémorable." },
-          { title: "L'ambiance", text: "Nous avons imaginé une soirée raffinée, entre ivoire, champagne, or doux, chandeliers et élégance intemporelle." },
+          { title: "L'ambiance", text: "Nous avons imaginé une nuit royale en cristal, entre ivoire, champagne, or doux, chandeliers et élégance intemporelle." },
           { title: "L'invitation", text: "Nous avons hâte de vous accueillir dans une atmosphère raffinée, pensée comme une grande réception de prestige." }
         ]
       },
@@ -144,7 +150,8 @@ window.WEDDING_CONFIG = {
       },
       form: {
         name: "Nom complet",
-        contact: "Email ou numéro de téléphone",
+        email: "Email",
+        phone: "Numéro de téléphone",
         attendance: "Présence",
         choose: "Choisir une option",
         yes: "Oui, je serai présent(e)",
@@ -153,15 +160,17 @@ window.WEDDING_CONFIG = {
         language: "Choix de langue",
         message: "Message optionnel",
         submit: "Envoyer ma réponse",
-        success: "Merci, votre réponse a été enregistrée.",
-        error: "Veuillez vérifier les champs obligatoires."
+        success: "Merci, votre réponse a été envoyée.",
+        error: "Veuillez vérifier les champs obligatoires.",
+        sending: "Envoi en cours...",
+        emailError: "L'envoi n'a pas abouti. Veuillez réessayer ou nous contacter directement."
       },
       footer: { text: "Johannesburg, Afrique du Sud | 26 décembre 2026" }
     },
     en: {
       nav: { welcome: "Welcome", schedule: "Schedule", venue: "Venue", rsvp: "RSVP" },
       hero: {
-        script: "A royal, luminous and timeless celebration.",
+        script: "We would be honoured to celebrate this day with you.",
         date: "December 26, 2026",
         location: "Johannesburg, South Africa",
         rsvpButton: "Send RSVP",
@@ -172,7 +181,7 @@ window.WEDDING_CONFIG = {
           "With joy and gratitude, we invite you to share in the celebration of our union. Your presence will make this day even more meaningful."
       },
       countdown: {
-        eyebrow: "Before the ballroom opens",
+        eyebrow: "Before entering the ballroom",
         title: "The royal countdown",
         days: "Days",
         hours: "Hours",
@@ -183,16 +192,16 @@ window.WEDDING_CONFIG = {
         eyebrow: "Welcome to our celebration",
         title: "A night imagined as a royal reception",
         subtitle:
-          "Thank you for confirming your presence. We are deeply honoured to count you among the people who will share this meaningful day with us.",
+          "Thank you for confirming your presence. We are deeply honoured to count you among the people who will share this very important day with us.",
         blocks: [
-          { title: "Our gratitude", text: "Your presence will make this celebration warmer, more meaningful and truly unforgettable." },
-          { title: "The atmosphere", text: "We have imagined a royal crystal night shaped by ivory, champagne, soft gold, chandeliers and timeless elegance." },
+          { title: "Our gratitude", text: "Your presence will make this celebration even more special, warmer and more memorable." },
+          { title: "The atmosphere", text: "We have imagined a royal crystal night, between ivory, champagne, soft gold, chandeliers and timeless elegance." },
           { title: "The invitation", text: "We cannot wait to welcome you into a refined atmosphere inspired by a grand reception of prestige." }
         ]
       },
       schedule: {
-        eyebrow: "Wedding Day",
-        title: "Wedding schedule",
+        eyebrow: "Wedding day",
+        title: "Schedule of the day",
         subtitle: "Times can be adjusted easily in the configuration file."
       },
       venue: {
@@ -205,7 +214,7 @@ window.WEDDING_CONFIG = {
       },
       accommodation: {
         eyebrow: "Accommodation",
-        title: "Stay close to the celebration",
+        title: "Stay nearby",
         text:
           "Rooms may be available at Avianto. This section will hold the official details for reserved rooms, rates and booking instructions once everything is finalised.",
         button: "Book a Room"
@@ -221,12 +230,13 @@ window.WEDDING_CONFIG = {
         eyebrow: "Final confirmation",
         title: "Final RSVP",
         text:
-          "We know circumstances can change. Please confirm your presence one final time so we can complete the planning of this exceptional day with care.",
-        note: "Your response will help us refine the final details with elegance and precision."
+          "We know that circumstances can change. Please confirm your presence one final time to help us finalize the organization of this exceptional day.",
+        note: "Your response will help us adjust the final details with care and elegance."
       },
       form: {
         name: "Full name",
-        contact: "Email or phone number",
+        email: "Email",
+        phone: "Phone number",
         attendance: "Attendance",
         choose: "Choose an option",
         yes: "Yes, I will attend",
@@ -235,8 +245,10 @@ window.WEDDING_CONFIG = {
         language: "Language choice",
         message: "Optional message",
         submit: "Send RSVP",
-        success: "Thank you, your RSVP has been saved.",
-        error: "Please check the required fields."
+        success: "Thank you, your RSVP has been sent.",
+        error: "Please check the required fields.",
+        sending: "Sending...",
+        emailError: "The submission could not be sent. Please try again or contact us directly."
       },
       footer: { text: "Johannesburg, South Africa | December 26, 2026" }
     }

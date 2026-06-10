@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="./assets/monogram-sd-transparent.png" />
+    <link rel="icon" href="/assets/monogram-sd-transparent.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -23,7 +23,7 @@
 
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Samuel and Dorcas home">
-        <img src="./assets/monogram-sd-transparent.png" alt="" />
+        <img src="/assets/monogram-sd-transparent.png" alt="" />
       </a>
       <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
         <span></span>
@@ -65,7 +65,7 @@
       <section id="details" class="intro section-pad">
         <div class="section-inner intro-grid">
           <div class="intro-card reveal">
-            <img src="./assets/monogram-sd-transparent.png" alt="S and D monogram" />
+            <img src="/assets/monogram-sd-transparent.png" alt="S and D monogram" />
             <p data-i18n="intro.text"></p>
             <strong>Samuel &amp; Dorcas</strong>
           </div>
@@ -177,14 +177,26 @@
             <p data-i18n="rsvp.text"></p>
             <div class="rsvp-note" data-i18n="rsvp.note"></div>
           </div>
-          <form class="rsvp-form reveal" data-rsvp-form>
+          <form
+            class="rsvp-form reveal"
+            data-rsvp-form
+            action="https://formsubmit.co/ajax/dorcasmalemo@icloud.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New RSVP - Samuel & Dorcas Wedding" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
             <label>
               <span data-i18n="form.name"></span>
               <input name="fullName" type="text" autocomplete="name" required />
             </label>
             <label>
-              <span data-i18n="form.contact"></span>
-              <input name="contact" type="text" autocomplete="email" required />
+              <span data-i18n="form.email"></span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              <span data-i18n="form.phone"></span>
+              <input name="phone" type="tel" autocomplete="tel" required />
             </label>
             <label>
               <span data-i18n="form.attendance"></span>
@@ -217,7 +229,7 @@
     </main>
 
     <footer class="footer">
-      <img src="./assets/monogram-sd-transparent.png" alt="" />
+      <img src="/assets/monogram-sd-transparent.png" alt="" />
       <p>Samuel &amp; Dorcas</p>
       <span data-i18n="footer.text"></span>
     </footer>

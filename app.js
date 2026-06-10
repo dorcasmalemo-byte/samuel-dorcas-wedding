@@ -87,7 +87,8 @@
     if (!form) return;
     const labels = {
       fullName: t("form.name"),
-      contact: t("form.contact"),
+      email: t("form.email"),
+      phone: t("form.phone"),
       attendance: t("form.attendance"),
       guests: t("form.guests"),
       language: t("form.language"),
@@ -248,7 +249,7 @@
   }
 
   function setupForm() {
-    selectors.form?.addEventListener("submit", (event) => {
+    selectors.form?.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       if (!selectors.form.checkValidity()) {
@@ -259,14 +260,35 @@
 
       const data = Object.fromEntries(new FormData(selectors.form).entries());
       data.createdAt = new Date().toISOString();
+      data.pageLanguage = state.lang;
+      data.wedding = "Samuel & Dorcas - 26 December 2026";
 
       const existing = JSON.parse(localStorage.getItem("wedding-rsvps") || "[]");
       existing.push(data);
       localStorage.setItem("wedding-rsvps", JSON.stringify(existing));
 
-      selectors.formStatus.textContent = t("form.success");
-      selectors.form.reset();
-      selectors.form.elements.language.value = state.lang;
+      selectors.formStatus.textContent = t("form.sending");
+
+      try {
+        const formData = new FormData(selectors.form);
+        formData.append("createdAt", data.createdAt);
+        formData.append("pageLanguage", data.pageLanguage);
+        formData.append("wedding", data.wedding);
+
+        const response = await fetch(config.rsvp.endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData
+        });
+
+        if (!response.ok) throw new Error("RSVP email request failed");
+
+        selectors.formStatus.textContent = t("form.success");
+        selectors.form.reset();
+        selectors.form.elements.language.value = state.lang;
+      } catch (error) {
+        selectors.formStatus.textContent = t("form.emailError");
+      }
     });
   }
 
