@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Invitation de mariage et RSVP de Samuel & Dorcas, le 26 décembre 2026 à Johannesburg, Afrique du Sud."
+    />
+    <meta name="theme-color" content="#070604" />
+    <title>Samuel & Dorcas | Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./assets/monogram-sd-transparent.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Samuel and Dorcas home">
+        <img src="./assets/monogram-sd-transparent.png" alt="" />
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" data-nav>
+        <a href="#welcome" data-i18n="nav.welcome"></a>
+        <a href="#schedule" data-i18n="nav.schedule"></a>
+        <a href="#venue" data-i18n="nav.venue"></a>
+        <a href="#rsvp" data-i18n="nav.rsvp"></a>
+      </nav>
+      <div class="language-switch" aria-label="Language switcher">
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-gallery" data-hero-gallery aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <h1>Samuel <span>&amp;</span> Dorcas</h1>
+          <p class="hero-script" data-i18n="hero.script"></p>
+          <div class="hero-details">
+            <span data-i18n="hero.date"></span>
+            <span data-i18n="hero.location"></span>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#rsvp" data-i18n="hero.rsvpButton"></a>
+            <a class="button button-ghost" href="#details" data-i18n="hero.detailsButton"></a>
+          </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <section id="details" class="intro section-pad">
+        <div class="section-inner intro-grid">
+          <div class="intro-card reveal">
+            <img src="./assets/monogram-sd-transparent.png" alt="S and D monogram" />
+            <p data-i18n="intro.text"></p>
+            <strong>Samuel &amp; Dorcas</strong>
+          </div>
+          <div class="countdown reveal" aria-label="Wedding countdown">
+            <p class="eyebrow" data-i18n="countdown.eyebrow"></p>
+            <h2 data-i18n="countdown.title"></h2>
+            <div class="time-grid">
+              <div><strong data-count="days">000</strong><span data-i18n="countdown.days"></span></div>
+              <div><strong data-count="hours">00</strong><span data-i18n="countdown.hours"></span></div>
+              <div><strong data-count="minutes">00</strong><span data-i18n="countdown.minutes"></span></div>
+              <div><strong data-count="seconds">00</strong><span data-i18n="countdown.seconds"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="welcome" class="story welcome section-pad">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="welcome.eyebrow"></p>
+            <h2 data-i18n="welcome.title"></h2>
+            <p data-i18n="welcome.subtitle"></p>
+          </div>
+          <div class="story-layout">
+            <figure class="portrait reveal">
+              <img data-image="welcome" alt="Royal wedding reception mood" />
+            </figure>
+            <div class="story-blocks" data-welcome-blocks></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="schedule" class="schedule section-pad dark-band">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="schedule.eyebrow"></p>
+            <h2 data-i18n="schedule.title"></h2>
+            <p data-i18n="schedule.subtitle"></p>
+          </div>
+          <div class="timeline" data-timeline></div>
+        </div>
+      </section>
+
+      <section id="venue" class="venue section-pad">
+        <div class="section-inner split">
+          <div class="venue-copy reveal">
+            <p class="eyebrow" data-i18n="venue.eyebrow"></p>
+            <h2>Avianto</h2>
+            <p data-i18n="venue.text"></p>
+            <div class="venue-meta">
+              <span data-i18n="venue.location"></span>
+              <span data-i18n="venue.date"></span>
+            </div>
+            <a class="button button-primary" data-link="maps" target="_blank" rel="noreferrer" data-i18n="venue.button"></a>
+          </div>
+          <div class="map-panel reveal">
+            <iframe
+              title="Avianto map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Avianto%20Johannesburg%20South%20Africa&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="accommodation" class="accommodation section-pad champagne-band">
+        <div class="section-inner split reverse">
+          <figure class="wide-photo reveal">
+            <img data-image="accommodation" alt="Luxury wedding accommodation" />
+          </figure>
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="accommodation.eyebrow"></p>
+            <h2 data-i18n="accommodation.title"></h2>
+            <p data-i18n="accommodation.text"></p>
+            <a class="button button-dark" data-link="accommodation" target="_blank" rel="noreferrer" data-i18n="accommodation.button"></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="gifts" class="gifts section-pad dark-band">
+        <div class="section-inner split">
+          <figure class="wide-photo reveal">
+            <img data-image="gifts" alt="Wedding gift table" />
+          </figure>
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="gifts.eyebrow"></p>
+            <h2 data-i18n="gifts.title"></h2>
+            <p data-i18n="gifts.text"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="photos" class="photos section-pad">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="photos.eyebrow"></p>
+            <h2 data-i18n="photos.title"></h2>
+          </div>
+          <div class="photo-grid" data-gallery-grid></div>
+        </div>
+      </section>
+
+      <section id="rsvp" class="rsvp section-pad">
+        <div class="section-inner rsvp-grid">
+          <div class="rsvp-copy reveal">
+            <p class="eyebrow" data-i18n="rsvp.eyebrow"></p>
+            <h2 data-i18n="rsvp.title"></h2>
+            <p data-i18n="rsvp.text"></p>
+            <div class="rsvp-note" data-i18n="rsvp.note"></div>
+          </div>
+          <form class="rsvp-form reveal" data-rsvp-form>
+            <label>
+              <span data-i18n="form.name"></span>
+              <input name="fullName" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              <span data-i18n="form.contact"></span>
+              <input name="contact" type="text" autocomplete="email" required />
+            </label>
+            <label>
+              <span data-i18n="form.attendance"></span>
+              <select name="attendance" required>
+                <option value="" data-i18n="form.choose"></option>
+                <option value="yes" data-i18n="form.yes"></option>
+                <option value="no" data-i18n="form.no"></option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="form.guests"></span>
+              <input name="guests" type="number" min="1" max="10" value="1" required />
+            </label>
+            <label>
+              <span data-i18n="form.language"></span>
+              <select name="language" required>
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <label class="full">
+              <span data-i18n="form.message"></span>
+              <textarea name="message" rows="5"></textarea>
+            </label>
+            <button class="button button-dark full" type="submit" data-i18n="form.submit"></button>
+            <p class="form-status" data-form-status role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <img src="./assets/monogram-sd-transparent.png" alt="" />
+      <p>Samuel &amp; Dorcas</p>
+      <span data-i18n="footer.text"></span>
+    </footer>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "samuel-dorcas-wedding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual luxury wedding invitation and RSVP website for Samuel and Dorcas.",
+  "scripts": {
+    "build": "node scripts/verify-build.js",
+    "dev": "python3 -m http.server 4173"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
