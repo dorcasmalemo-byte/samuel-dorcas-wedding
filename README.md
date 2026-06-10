@@ -45,7 +45,7 @@ Avant de deployer, verifier le projet:
 npm run build
 ```
 
-Cette commande lance `scripts/verify-build.js` et verifie que les fichiers critiques sont presents, que le JavaScript est valide et que les references locales ne sont pas cassees.
+Cette commande verifie directement que `config.js` et `app.js` sont valides. Elle ne depend d'aucun fichier de script separe, ce qui evite les erreurs de fichier manquant sur Vercel.
 
 Option simple avec l'interface Vercel:
 
@@ -88,23 +88,14 @@ Modifier les liens dans:
 
 ```js
 images: {
-  hero: "...",
-  welcome: "...",
-  accommodation: "...",
-  gifts: "...",
-  galleryOne: "...",
-  galleryTwo: "...",
-  galleryThree: "..."
+  hero: "https://lightroom.adobe.com/...",
+  welcome: "https://lightroom.adobe.com/...",
+  accommodation: "https://lightroom.adobe.com/...",
+  gifts: "https://lightroom.adobe.com/..."
 }
 ```
 
-Les images actuelles viennent de la galerie Lightroom fournie:
-
-```text
-https://lightroom.adobe.com/shares/b69aed502dc74169b658a828368f7739
-```
-
-Des images de secours sont aussi definies dans `imageFallbacks` au cas ou Lightroom bloque une image sur un appareil.
+Les images principales utilisent les vraies photos de couple depuis la galerie Lightroom fournie. Pour une qualite encore meilleure, telecharger les originaux depuis Lightroom et remplacer ces URLs par des fichiers locaux dans `assets/`.
 
 Le hero utilise une galerie de cartes animees dans:
 
@@ -165,11 +156,11 @@ Modifier:
 ```js
 links: {
   maps: "...",
-  accommodation: "#"
+  accommodation: "https://book.nightsbridge.com/29945"
 }
 ```
 
-Remplacer `#` par le vrai lien de reservation quand il sera pret. La section cadeaux ne contient plus de paiement en ligne ni de lien externe.
+Le lien d'hebergement pointe vers la page officielle de reservation Avianto/NightsBridge. La section cadeaux ne contient pas de paiement en ligne ni de lien externe.
 
 ### Polices
 
@@ -186,61 +177,44 @@ Le rendu utilise une combinaison proche du faire-part: Bodoni/Didot pour les gra
 
 ## RSVP actuel
 
-Le formulaire fonctionne deja en local: les reponses sont sauvegardees dans le navigateur avec `localStorage`, sous la cle:
+Le formulaire envoie les reponses par email via FormSubmit:
 
 ```text
-wedding-rsvps
+https://formsubmit.co/ajax/dorcasmalemo@icloud.com
 ```
 
-Pour voir les reponses dans le navigateur:
-
-```js
-JSON.parse(localStorage.getItem("wedding-rsvps") || "[]")
-```
-
-Cette solution est parfaite pour tester le design, mais pas suffisante pour recevoir les confirmations des invites sur ton email.
-
-## Connecter le RSVP pour recevoir les confirmations
-
-### Option 1: Formspree, la plus simple
-
-1. Creer un formulaire sur https://formspree.io.
-2. Copier ton endpoint, par exemple:
+Les reponses sont envoyees a:
 
 ```text
-https://formspree.io/f/xxxxxxx
+dorcasmalemo@icloud.com
 ```
 
-3. Dans `index.html`, remplacer:
+Important: FormSubmit enverra un email d'activation a `dorcasmalemo@icloud.com` lors du premier test. Il faut cliquer sur le lien d'activation dans cet email pour autoriser les prochains envois.
 
-```html
-<form class="rsvp-form reveal" data-rsvp-form>
+Une copie locale de secours est aussi sauvegardee dans le navigateur avec `localStorage`, sous la cle `wedding-rsvps`.
+
+## Tester le RSVP
+
+1. Ouvrir le site local ou le site Vercel.
+2. Remplir le formulaire RSVP avec un test.
+3. Envoyer.
+4. Verifier la boite mail `dorcasmalemo@icloud.com`.
+5. Si FormSubmit demande une activation, cliquer sur le lien recu.
+
+Les champs envoyes sont:
+
+```text
+fullName
+email
+phone
+attendance
+guests
+language
+message
+createdAt
+pageLanguage
+wedding
 ```
-
-par:
-
-```html
-<form class="rsvp-form reveal" data-rsvp-form action="https://formspree.io/f/xxxxxxx" method="POST">
-```
-
-4. Dans `app.js`, remplacer la fonction `setupForm()` par un envoi `fetch` vers ton endpoint, ou supprimer l'interception JavaScript si tu veux un submit classique.
-
-### Option 2: EmailJS
-
-1. Creer un compte sur https://www.emailjs.com.
-2. Creer un service email et un template.
-3. Ajouter le SDK EmailJS dans `index.html`.
-4. Dans `app.js`, remplacer la sauvegarde `localStorage` par `emailjs.send(...)`.
-
-### Option 3: Supabase
-
-1. Creer un projet Supabase.
-2. Creer une table `rsvps` avec les colonnes:
-   `full_name`, `contact`, `attendance`, `guests`, `language`, `message`, `created_at`.
-3. Ajouter le client Supabase.
-4. Dans `app.js`, remplacer la sauvegarde `localStorage` par un insert dans la table.
-
-Supabase est le meilleur choix si tu veux un tableau complet des invites et exporter les reponses.
 
 ## Structure des fichiers
 
@@ -252,6 +226,5 @@ config.js       Textes, images, liens, horaires
 assets/         Images et monogramme
 vercel.json     Configuration de deploiement Vercel
 package.json    Commandes locales et validation Vercel
-scripts/        Verification de build avant deploiement
 .vercelignore   Fichiers exclus du deploiement
 ```
